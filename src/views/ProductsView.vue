@@ -6,7 +6,7 @@
     />
   </header>
   <div class="products">
-    <h1 class="display-2">This is the products page</h1>
+    <h4 class="display-2">our products</h4>
     <div class="row row-cols-1 row-cols-md-4 g-4">
         <div v-for="product in products" :key="product.prodID" class="col">
           <div class="card mx-1 my-3">
@@ -17,6 +17,7 @@
               <p class="card-text">
                 R{{ product.amount }}
               </p>
+              <button @click="addToCart(product)" class="btn btn-primary">Add to Cart</button>
             </div>
           </div>
         </div>
@@ -29,6 +30,12 @@ export default {
   computed: {
     products() {
       return this.$store.state.products;
+    }
+  },
+  methods: {
+    addToCart(product) {
+      // Add logic to add the product to the cart
+      console.log('Added to cart:', product);
     }
   },
   mounted() {
@@ -83,7 +90,7 @@ img {
 
 .card:hover {
   border: none;
-  box-shadow: 10px 5px 15px 0px #4E96D3;
+  box-shadow: 10px 5px 15px 0px #17181a;
 }
 
 .card-img-top {
@@ -92,4 +99,5 @@ img {
   display: flex;
   margin: auto;
 }
+
 </style>

@@ -28,8 +28,12 @@ export default {
   background-size: cover; /* Adjusts the background image to cover the entire container */
   background-position: center; /* Centers the background image */
 }
+h1{
+  margin-bottom: 50px;
+}
 .container .title h1 {
-  color: white;;
+  color: white;
+  font-size: 4rem;
   font-family: 'Pacifico';font-size: 50px;
   text-align: center; /* Center text horizontally */
   /* -webkit-text-stroke: 1px rgb(51, 18, 18); Border outline */
