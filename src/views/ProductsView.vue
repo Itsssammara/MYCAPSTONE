@@ -99,5 +99,8 @@ img {
   display: flex;
   margin: auto;
 }
+.products p{
+  font-size: x-large;
+}
 
 </style>

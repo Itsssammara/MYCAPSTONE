@@ -1,23 +1,60 @@
+
 <template>
-  <div class="container">
-     <img src="https://i.postimg.cc/mr1vy2L9/model1.png" alt=""> 
-     <h1>About Us</h1><br>
-     <p>"Modest Elegance is your destination for affordable, high-quality hijabs in <br> South Africa. Our mission is to empower women to embrace modesty without <br> compromising on style. We carefully curate our collection to ensure that each <br> piece is not only elegant and stylish, but also made with the finest materials for lasting wear.<br> Whether you're dressing up for a special occasion or looking for everyday essentials,<br> Modest Elegance has the perfect hijab for you. Shop our <br> collection today and experience the perfect blend of modesty and elegance."</p>
-      <br>
+  <div class="about-container">
+    <div class="header">
+      <h1>About Us</h1>
+    </div>
+    <div class="image-container">
+      <img src="https://i.postimg.cc/mr1vy2L9/model1.png" alt="Modest Elegance Hijabs">
+    </div>
+    <div class="content">
+      <p>
+        "Modest Elegance is your destination for affordable, high-quality hijabs in South Africa. Our mission is to empower women to embrace modesty without compromising on style. We carefully curate our collection to ensure that each piece is not only elegant and stylish but also made with the finest materials for lasting wear. Whether you're dressing up for a special occasion or looking for everyday essentials, Modest Elegance has the perfect hijab for you. Shop our collection today and experience the perfect blend of modesty and elegance."
+      </p>
+    </div>
   </div>
 </template>
 
 <style>
-.container{
-  color: black;
-  font-family: 'Crimson Text';font-size: 22px;
+.about-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  color: #333;
+  font-family: 'Crimson Text', serif;
 }
-.container img{
-  width: 100vw; /* Set the width to 100% of the viewport width */
-  height: 70vh; /* Set the height to 50% of the viewport height */
-  object-fit: cover; /* Ensure the image covers the container */
-  image-rendering: -webkit-optimize-contrast; /* Apply image optimization for better contrast */
-  image-rendering: crisp-edges;
+
+.header h1 {
+  font-size: 32px;
+  margin-bottom: 20px;
 }
- 
+
+.image-container img {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.content {
+  margin-top: 30px;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .about-container {
+    padding: 10px;
+  }
+  
+  .header h1 {
+    font-size: 28px;
+  }
+  
+  .content {
+    font-size: 16px;
+  }
+}
 </style>
