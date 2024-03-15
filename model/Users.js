@@ -32,10 +32,10 @@ class Users {
   async createUser(req, res) {
     //payload
     let data = req.body;
-    data.userPwd = await bcrypt.hash(data?.userPwd, 10);
+    data.userPass = await bcrypt.hash(data?.userPass, 10);
     let user = {
       emailAdd: data.emailAdd,
-      userPwd: data.userPwd,
+      userPass: data.userPass,
     };
     const qry = `
     INSERT INTO USERS
