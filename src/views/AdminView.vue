@@ -3,10 +3,12 @@
     <!-- Users Section -->
     <div class="row">
       <h2 class="display-4">Users</h2>
+      <!-- <button class="btn btn-success" @click="addUser()" data-bs-target="#exampleModal">Add</button> -->
     </div>
     <div class="row">
       <div class="col">
-        <button class="btn btn-success" @click="addUser()">Add</button>
+        <!-- <button class="btn btn-success" @click="addUser()" data-bs-target="#exampleModal">Add</button> -->
+        <AddUser/>
       </div>
     </div>
     <div class="row">
@@ -99,8 +101,12 @@
 </template>
 
 <script>
+import AddUser from '../components/AddUser';
 // import DeleteProduct from './DeleteProduct.vue';
 export default {
+  components:{
+    AddUser
+  },
   computed: {
     users() {
       return this.$store.state.users;

@@ -10,7 +10,7 @@
         <label for="password">Password</label>
         <input type="password" id="password" name="password" required>
       </div>
-      <router-link to="/signup">
+      <router-link to="#">
         <button type="submit" class="btn">Login </button>
       </router-link>
       <div class="regist-link">Don't have an account?

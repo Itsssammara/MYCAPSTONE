@@ -32,9 +32,9 @@ export default createStore({
     },
   },
   actions: {
-    async register(context, packet) {
+    async register(context, payload) {
       try {
-        let { message } = await axios.post(`${baseURL}/users/register`, packet);
+        let { message } = await axios.post(`${baseURL}users/register`, payload).data;
         console.log(message);
         context.dispatch("fetchUsers");
         sweet({
@@ -54,7 +54,7 @@ export default createStore({
     },
     async fetchUsers(context) {
       try {
-        let { results } = (await axios.get(`${baseURL}/users`)).data;
+        let { results } = (await axios.get(`${baseURL}users`)).data;
         if (results) {
           context.commit("setUsers", results);
         }
@@ -69,7 +69,7 @@ export default createStore({
     },
     async fetchUser(context, packet) {
       try {
-        let { result } = (await axios.get(`${baseURL}/users/${packet.id}`)).data;
+        let { result } = (await axios.get(`${baseURL}users/${packet.id}`)).data;
         if (result) {
           context.commit("setUser", result);
         } else {

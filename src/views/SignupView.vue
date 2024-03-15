@@ -18,7 +18,7 @@
         <button type="submit">Register </button>
       </router-link>
       <div class="regist-link">Already have an account?
-       <router-link to="/login">Login now</router-link>
+       <router-link to="/login">Login here</router-link>
       </div>
       
       </form>
