@@ -42,7 +42,7 @@
             <!-- Action buttons -->
             <td class="d-flex justify-content-between">
               <!-- Component for updating user -->
-              <updateUser :user="user" />
+              <UpdateUser :user="user" />
               <!-- Delete user button -->
               <button class="btn btn-danger" @click="(event)=>deleteUser(user.userID)" >Delete</button>
             </td>
@@ -105,12 +105,13 @@
 import AddUser from '../components/AddUser';
 import AddProd from '../components/AddProd';
 import UpdateProd from '../components/UpdateProd';
-// import DeleteProduct from './DeleteProduct.vue';
+import UpdateUser from '../components/UpdateUser.vue';
 export default {
   components:{
     AddUser,
     AddProd,
-    UpdateProd
+    UpdateProd,
+    UpdateUser
   },
   computed: {
     users() {

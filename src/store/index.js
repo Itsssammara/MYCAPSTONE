@@ -199,7 +199,7 @@ export default createStore({
         commit("setProducts");
         dispatch("getProducts");
         sweet({
-          title: "Delete product",
+          title: "Product Deleted ",
           icon: "success",
           timer: 2000,
         });
