@@ -57,7 +57,8 @@
     </div>
     <div class="row">
       <div class="col">
-        <button class="btn btn-success" @click="addProduct()">Add</button>
+        <!-- <button class="btn btn-success" @click="addProduct()">Add</button> -->
+        <AddProd/>
       </div>
     </div>
     <div class="row">
@@ -89,9 +90,9 @@
             <!-- Action buttons -->
             <td class="d-flex justify-content-between">
               <!-- Edit product button -->
-              <button class="btn btn-success" @click="editProduct(product)">Edit</button>
+              <UpdateProd/>
               <!-- Delete product button -->
-              <button class="btn btn-danger" @click="deleteProduct(product)">Delete</button>
+              <button class="btn btn-danger" @click="(event)=>deleteProduct(product.prodID)">Delete</button>
             </td>
           </tr>
         </tbody>
@@ -103,11 +104,13 @@
 <script>
 import AddUser from '../components/AddUser';
 import AddProd from '../components/AddProd';
+import UpdateProd from '../components/UpdateProd';
 // import DeleteProduct from './DeleteProduct.vue';
 export default {
   components:{
     AddUser,
-    AddProd
+    AddProd,
+    UpdateProd
   },
   computed: {
     users() {
@@ -121,8 +124,8 @@ export default {
     deleteUser(userID) {
       this.$store.dispatch('deleteUser', {id:userID});
     },
-    deleteProduct(product) {
-      this.$store.dispatch('deleteProduct', product.prodID);
+    deleteProduct(prodID) {
+      this.$store.dispatch('deleteProduct', {id:prodID});
     },
     addUser() {
       // Logic for adding a user
@@ -136,7 +139,7 @@ export default {
   },
   mounted() {
     this.$store.dispatch("fetchUsers");
-    this.$store.dispatch("fetchProducts");
+    this.$store.dispatch("getProducts");
   }
 };
 </script>

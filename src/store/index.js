@@ -173,7 +173,7 @@ export default createStore({
     },
     async fetchProduct(context, packet) {
       try {
-        let { result } = (await axios.get(`${baseURL}/PRODUCTS/${packet.id}`)).data;
+        let { result } = (await axios.get(`${baseURL}products/${packet.id}`)).data;
         if (result) {
           context.commit("setProduct", result);
         } else {
@@ -195,9 +195,9 @@ export default createStore({
     },
     async deleteProduct({ commit, dispatch }, packet) {
       try {
-        await axios.delete(`${baseURL}PRODUCTS/delete/${packet.id}`);
+        await axios.delete(`${baseURL}products/delete/${packet.id}`);
         commit("setProducts");
-        dispatch("fetchProducts");
+        dispatch("getProducts");
         sweet({
           title: "Delete product",
           icon: "success",
@@ -214,11 +214,31 @@ export default createStore({
     },
     async addProduct(context, packet) {
       try {
-        let { message } = await axios.post(`${baseURL}PRODUCTS/addProduct`, packet);
+        let { message } = await axios.post(`${baseURL}products/addProduct`, packet);
         console.log(message);
         context.dispatch("fetchProducts");
         sweet({
           title: "Registration",
+          text: message,
+          icon: "success",
+          timer: 2000,
+        });
+      } catch (e) {
+        sweet({
+          title: "Error",
+          text: "Please try again later",
+          icon: "error",
+          timer: 2000,
+        });
+      }
+    },
+    async updateProduct(context, {id, packet}) {
+      try {
+        let { message } = await axios.patch(`${baseURL}products/update/${id}`, packet);
+        console.log(message);
+        context.dispatch("setProduct");
+        sweet({
+          title: "Update Successfully",
           text: message,
           icon: "success",
           timer: 2000,
