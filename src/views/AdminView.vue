@@ -44,7 +44,7 @@
               <!-- Component for updating user -->
               <updateUser :user="user" />
               <!-- Delete user button -->
-              <button class="btn btn-danger" @click="deleteUser(user.userID)">Delete</button>
+              <button class="btn btn-danger" @click="(event)=>deleteUser(user.userID)" >Delete</button>
             </td>
           </tr>
         </tbody>
@@ -102,10 +102,12 @@
 
 <script>
 import AddUser from '../components/AddUser';
+import AddProd from '../components/AddProd';
 // import DeleteProduct from './DeleteProduct.vue';
 export default {
   components:{
-    AddUser
+    AddUser,
+    AddProd
   },
   computed: {
     users() {
@@ -116,8 +118,8 @@ export default {
     }
   },
   methods: {
-    deleteUser(userId) {
-      this.$store.dispatch('deleteUser', userId);
+    deleteUser(userID) {
+      this.$store.dispatch('deleteUser', {id:userID});
     },
     deleteProduct(product) {
       this.$store.dispatch('deleteProduct', product.prodID);

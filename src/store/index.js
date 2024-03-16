@@ -112,7 +112,7 @@ export default createStore({
     },
     async deleteUser({ commit, dispatch }, packet) {
       try {
-        await axios.delete(`${baseURL}/users/delete/${packet.id}`);
+        await axios.delete(`${baseURL}users/delete/${packet.id}`);
         commit("setUsers");
         dispatch("fetchUsers");
         sweet({
@@ -195,7 +195,7 @@ export default createStore({
     },
     async deleteProduct({ commit, dispatch }, packet) {
       try {
-        await axios.delete(`${baseURL}/PRODUCTS/delete/${packet.id}`);
+        await axios.delete(`${baseURL}PRODUCTS/delete/${packet.id}`);
         commit("setProducts");
         dispatch("fetchProducts");
         sweet({
@@ -214,7 +214,7 @@ export default createStore({
     },
     async addProduct(context, packet) {
       try {
-        let { message } = await axios.post(`${baseURL}/PRODUCTS/addProduct`, packet);
+        let { message } = await axios.post(`${baseURL}PRODUCTS/addProduct`, packet);
         console.log(message);
         context.dispatch("fetchProducts");
         sweet({

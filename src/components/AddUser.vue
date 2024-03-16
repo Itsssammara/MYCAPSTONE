@@ -22,7 +22,7 @@
               <input type="text" class="form-control w-50 mx-auto" placeholder="Last Name" v-model="payload.lastName">
           </div>
           <div class="mb-3">
-              <input type="number" class="form-control w-50 mx-auto" placeholder="Age" v-model="payload.age">
+              <input type="number" class="form-control w-50 mx-auto" placeholder="Age" v-model="payload.userAge">
           </div>
           <div class="mb-3">
               <input type="text" class="form-control w-50 mx-auto" placeholder="Gender" v-model="payload.gender">
@@ -35,6 +35,9 @@
           </div>
           <div class="mb-3">
               <input type="password" class="form-control w-50 mx-auto" placeholder="Password" v-model="payload.userPass">
+          </div>
+          <div class="mb-3">
+              <input type="text" class="form-control w-50 mx-auto" placeholder="User Profile" v-model="payload.userProfile">
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -60,10 +63,10 @@
               lastName:'',
               userRole:'',
               gender:'',
-              age: '',
+              userAge: '',
               emailAdd:'',
               userPass:'',
-              // userProfile:'https://i.postimg.cc/pTLmhdpj/placeholder-person.jpg'
+              userProfile:'https://i.postimg.cc/pTLmhdpj/placeholder-person.jpg'
             }
           }
         },
