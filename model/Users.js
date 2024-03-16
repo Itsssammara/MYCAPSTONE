@@ -97,7 +97,7 @@ class Users {
     });
   }
   login(req, res) {
-    const { emailAdd, userPwd } = req.body;
+    const { emailAdd, userPass } = req.body;
     const qry = `SELECT userID,firstName,lastName,userAge,gender,userRole,emailAdd, userPass,  userProfile
   FROM USERS
   WHERE emailAdd='${emailAdd}'`;
@@ -109,11 +109,11 @@ class Users {
           msg: "You provided a wrong email address",
         });
       } else {
-        const validPass = await bcrypt.compare(userPwd, result[0].userPwd);
+        const validPass = await bcrypt.compare(userPass, result[0].userPass);
         if (validPass) {
           const token = createToken({
             emailAdd,
-            userPwd,
+            userPass,
           });
           res.json({
             status: res.statusCode,
