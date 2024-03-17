@@ -1,22 +1,29 @@
 <template>
   <div class="contact">
     <div class="contact-image">
-      <img src="https://i.postimg.cc/x1ybZRRp/contact-img.png" alt="Contact Image">
+      <img src="https://i.postimg.cc/zGbQ5jWW/contactus.jpg" alt="Contact Image">
     </div><br>
     <div class="contact-form">
       <h1>Contact Us</h1>
       
-      <form action="https://formspree.io/f/xayrbrrv" method="post">
+      <form action="https://formspree.io/f/xayrbrrv" method="POST">
         <p>Have questions? We'd love to hear from you!</p>
         <label for="name"></label><br>
-        <input type="text" id="name" name="name" placeholder="Name"><br>
+        <input type="text" id="name" name="name" placeholder="Name" required><br>
         <label for="email"></label><br>
-        <input type="email" id="email" name="email" placeholder="Email"><br>
+        <input type="email" id="email" name="email" placeholder="Email" required><br>
         <label for="message"></label><br>
-        <textarea id="message" name="message" placeholder="What's on your mind?"></textarea><br>
+        <textarea id="message" name="message" placeholder="What's on your mind?" required></textarea><br>
         <input type="submit" value="Submit">
       </form>
+      <div class="social-icons">
+      <a href="#" class="icon" id="facebook-icon"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" class="icon" id="twitter-icon"><i class="fab fa-twitter"></i></a>
+      <a href="#" class="icon" id="instagram-icon"><i class="fab fa-instagram"></i></a>
     </div>
+    </div>
+    
+
   </div>
 </template>
 
@@ -46,7 +53,7 @@
   }
   .contact-image {
     flex: 1;
-    max-width: 500px;
+    max-width: 450px;
   }
   .contact-image img {
     max-width: 100%;
@@ -87,4 +94,22 @@
   input[type="submit"]:hover {
     background-color: #dc689a;
   }
+  
+  /* Social Icons */
+  .social-icons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+  }
+  .icon {
+    display: inline-block;
+    font-size: 24px;
+    color: #333;
+    margin: 0 10px;
+    transition: color 0.3s;
+  }
+  .icon:hover {
+    color: #dc689a;
+  }
+  
 </style>

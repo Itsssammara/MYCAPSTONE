@@ -13,7 +13,7 @@
 </template>
 <script>
 export default {
-  name: 'Card'
+  name: 'card'
 }
 </script>
 <style>

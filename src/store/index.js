@@ -89,11 +89,11 @@ export default createStore({
         });
       }
     },
-    async updateUser(context, packet) {
+    async updateUser(context, {id, packet}) {
       try {
-        let { msg } = await axios.patch(`${baseURL}/users/update/${packet.id}`);
+        let { msg } = await axios.patch(`${baseURL}users/update/${id}`,packet);
         if (msg) {
-          context.dispatch("fetchUsers");
+          context.dispatch("setUsers");
           sweet({
             title: "Update user",
             text: msg,

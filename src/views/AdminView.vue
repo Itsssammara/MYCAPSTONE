@@ -42,7 +42,7 @@
             <!-- Action buttons -->
             <td class="d-flex justify-content-between">
               <!-- Component for updating user -->
-              <UpdateUser :user="user" />
+              <UpdateUser />
               <!-- Delete user button -->
               <button class="btn btn-danger" @click="(event)=>deleteUser(user.userID)" >Delete</button>
             </td>

@@ -12,6 +12,7 @@
     <router-link to="/login" class="sidebar-link">Login</router-link>
     <router-link to="/signup" class="sidebar-link">Sign Up</router-link>
     <router-link to="/contact" class="sidebar-link">Contact</router-link>
+    <router-link to="/test" class="sidebar-link">test</router-link>
   </div>
   <div class="content" :style="{ marginLeft: contentMargin + 'px' }">
     <div class="navbar" style="z-index: 50;">
