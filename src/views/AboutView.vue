@@ -18,16 +18,16 @@
       <p>Discover the latest trends in abayas from our sister company, Haanim's Closet. Browse through our exclusive collection of stylish and elegant abayas designed to elevate your modest fashion.</p>
       <div class="image-grid">
         <div class="image">
-          <img src="image_url_1" alt="Abayas">
+          <img src="https://i.ibb.co/Pr5pxD3/chiffon-6.jpg" alt="Abayas">
         </div>
         <div class="image">
-          <img src="image_url_2" alt="Abayas">
+          <img src="https://i.ibb.co/Q6hsWbm/satin.jpg" alt="Abayas">
         </div>
         <div class="image">
-          <img src="image_url_3" alt="Abayas">
+          <img src="https://i.ibb.co/44kbdC1/chiffon-1.jpg" alt="Abayas">
         </div>
         <div class="image">
-          <img src="image_url_4" alt="Abayas">
+          <img src="https://i.ibb.co/fXhchNb/jilbab-1.jpg'" alt="Abayas">
         </div>
       </div><br><br>
       <p>Visit <a href="https://abaya-boutique.com" target="_blank">Abaya Boutique</a> to explore more.</p>

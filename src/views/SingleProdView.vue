@@ -24,6 +24,7 @@
 </template>
 
 <script>
+
 import card from '../components/card.vue'
   export default {
       name: "test",

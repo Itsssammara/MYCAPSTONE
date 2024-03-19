@@ -1,5 +1,5 @@
 <template>
-  <navigation />
+  <navigation/>
   <main>
 
   </main>

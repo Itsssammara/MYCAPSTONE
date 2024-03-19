@@ -102,6 +102,7 @@
 </template>
 
 <script>
+
 import AddUser from '../components/AddUser';
 import AddProd from '../components/AddProd';
 import UpdateProd from '../components/UpdateProd';
