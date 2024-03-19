@@ -132,7 +132,7 @@ export default createStore({
     async login(context, packet) {
       try {
         const { msg, token, result } = (
-          await axios.post(`${baseURL}/users/login`, packet)
+          await axios.post(`${baseURL}users/login`, packet)
         ).data;
         if (result) {
           context.commit("setUser", { msg, result });

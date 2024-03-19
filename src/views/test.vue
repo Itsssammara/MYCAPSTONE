@@ -14,7 +14,7 @@
       </div>
       <button type="button" class="btn btn-primary" @click="login">Login</button> -->
       <form>
-      <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+      <h1 class="h3 mb-3 fw-normal">Welcome back!</h1>
   
       <div class="form-floating w-50 mx-auto m-3">
         <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" v-model="payload.emailAdd">
@@ -25,7 +25,7 @@
         <label for="floatingPassword">Password</label>
       </div>
   
-      <button class="btn btn-primary " type="button" @click="login">Sign in</button>
+      <button class="btn btn-primary " type="button" @click="login">Login</button>
     </form>
     </div>
   </template>
@@ -42,22 +42,19 @@
     },
     computed: {
       users() {
-        // Access users from Vuex store
         return this.$store.state.users;
       }
     },
     methods: {
       login() {
-        // Call login action from Vuex store
-        this.$store.dispatch('login', this.payload);
+        this.$store.dispatch('login', this.packet);
       }
-      // Other methods...
+     
     }
   };
   </script>
   
   <style scoped>
-  /* Add your custom styles here */
   form {
       display: block;
       margin-top: 0em;

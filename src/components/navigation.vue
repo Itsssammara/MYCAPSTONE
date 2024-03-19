@@ -73,7 +73,7 @@ export default {
   }
 .open-btn{
     color: #000000;/*color of open btn */
-    margin-left: 100hw;
+    /* margin-left: 100hw; */
 }
 
   body {
