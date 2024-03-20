@@ -15,7 +15,7 @@ function createToken(user) {
 }
 function verifyToken(req,res,next) {
     //retrieve a token from the browser
-   const token=req.headers['authorization']
+   const token=req?.headers['authorization']
 if(token){
     if(jwt.verify(token,process.env.JWT_SECRET)){
         next()
