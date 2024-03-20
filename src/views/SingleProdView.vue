@@ -38,6 +38,12 @@
         return this.$store.state.product
       }
     },
+    methods:{
+      addToCart(){
+        this.$store.dispatch('addToCart', this.product);
+        alert('Item added successfully!');
+      }
+    },
     mounted() {
       this.$store.dispatch('fetchProduct', this.$route.params)
     },

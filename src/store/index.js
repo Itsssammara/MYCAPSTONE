@@ -15,6 +15,7 @@ export default createStore({
     user: null,
     products: [],
     product: null,
+    cart: [], // Added missing cart state
   },
   getters: {},
   mutations: {
@@ -30,11 +31,23 @@ export default createStore({
     setProduct(state, value) {
       state.product = value;
     },
+    addProductToCart(state, product) {
+      state.cart.push({
+        id: product.id,
+        name: product.name,
+        price: product.price,
+        quantity: 1, // Initial quantity is 1
+      });
+    },
+    incrementCartItemQuantity(state, index) {
+      // Increase the quantity of the product in the cart
+      state.cart[index].quantity++;
+    },
   },
   actions: {
     async register(context, payload) {
       try {
-        let { message,token } = await axios.post(`${baseURL}users/register`, payload).data;
+        let { message, token } = (await axios.post(`${baseURL}users/register`, payload)).data; // Removed unnecessary .data
         console.log(message);
         context.dispatch("fetchUsers");
         sweet({
@@ -89,11 +102,11 @@ export default createStore({
         });
       }
     },
-    async updateUser(context, {id, packet}) {
+    async updateUser(context, { id, packet }) {
       try {
-        let { msg } = await axios.patch(`${baseURL}users/update/${id}`,packet);
+        let { msg } = await axios.patch(`${baseURL}users/update/${id}`, packet);
         if (msg) {
-          context.dispatch("setUsers");
+          context.dispatch("fetchUsers");
           sweet({
             title: "Update user",
             text: msg,
@@ -131,7 +144,7 @@ export default createStore({
     },
     async login(context, payload) {
       try {
-        const response = await axios.post('https://mycapstone-1.onrender.com/users/login', payload);
+        const response = await axios.post(`${baseURL}users/login`, payload); // Updated the URL
         const { msg, token, result } = response.data;
 
         if (token) {
@@ -170,7 +183,6 @@ export default createStore({
         });
       }
     },
-    
     async deleteProduct({ commit, dispatch }, packet) {
       try {
         await axios.delete(`${baseURL}products/delete/${packet.id}`);
@@ -192,7 +204,7 @@ export default createStore({
     },
     async addProduct(context, packet) {
       try {
-        let { message } = await axios.post(`${baseURL}products/addProduct`, packet);
+        let { message } = (await axios.post(`${baseURL}products/addProduct`, packet)).data; // Removed unnecessary .data
         console.log(message);
         context.dispatch("fetchProducts");
         sweet({
@@ -205,6 +217,61 @@ export default createStore({
         sweet({
           title: "Error",
           text: "Please try again later",
+          icon: "error",
+          timer: 2000,
+        });
+      }
+    },
+    async fetchProducts(context) {
+      try {
+        let { results } = (await axios.get(`${baseURL}products`)).data;
+        console.log(results);
+        if (results) {
+          context.commit("setProducts", results);
+        }
+      } catch (e) {
+        sweet({
+          title: "Error",
+          text: "An error occurred when retrieving products.",
+          icon: "error",
+          timer: 2000,
+        });
+      }
+    },
+    async fetchProducts(context) {
+      try {
+        let { results } = (await axios.get(`${baseURL}products`)).data;
+        console.log(results);
+        if (results) {
+          context.commit("setProducts", results);
+        }
+      } catch (e) {
+        sweet({
+          title: "Error",
+          text: "An error occurred when retrieving products.",
+          icon: "error",
+          timer: 2000,
+        });
+      }
+    },
+    async fetchProduct(context, packet) {
+      try {
+        let { result } = (await axios.get(`${baseURL}products/${packet?.id}`))
+          .data;
+        if (result) {
+          context.commit("setProduct", result);
+        } else {
+          sweet({
+            title: "Retrieving a single product",
+            text: "Product was not found",
+            icon: "info",
+            timer: 2000,
+          });
+        }
+      } catch (e) {
+        sweet({
+          title: "Error",
+          text: "A product was not found.",
           icon: "error",
           timer: 2000,
         });
@@ -230,6 +297,37 @@ export default createStore({
         });
       }
     },
-  },
+      async addToCart({ commit, state }, product) {
+        try {
+          // Check if the product already exists in the cart
+          const existingProductIndex = state.cart.findIndex(item => item.id === product.id);
+    
+          if (existingProductIndex !== -1) {
+            // If the product exists, increase its quantity
+            commit('incrementCartItemQuantity', existingProductIndex);
+          } else {
+            // If the product does not exist, add it to the cart
+            commit('addProductToCart', product);
+          }
+    
+          // Show an alert to notify the user
+          sweet({
+            title: 'Cart',
+            text: 'Item added to cart successfully',
+            icon: 'success',
+            timer: 2000,
+          });
+        } catch (error) {
+          // If an error occurs, show an error message
+          sweet({
+            title: 'Error',
+            text: 'Failed to add item to cart. Please try again later.',
+            icon: 'error',
+            timer: 2000,
+          });
+          console.error('Error adding item to cart:', error);
+        }
+      },
+    },
   modules: {},
-});
+  });

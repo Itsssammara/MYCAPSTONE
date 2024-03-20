@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p class="header-sml">FREE SHIPPING ON ORDERS OVER R400</p>
+    <p class="header-sml"> RAMADAN SURPRISE #2 - 30% OFF SOLID CHIFFONS! CODE: CHIFFON30 SHOP NOW! </p>
   </div>
   <div class="sidebar" :style="{ width: sidebarWidth + 'px', zIndex: 100 }">
     <button class="close-btn" @click="closeNav">&times;</button><br><br>
