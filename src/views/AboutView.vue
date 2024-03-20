@@ -24,13 +24,13 @@
           <img src="https://i.ibb.co/Q6hsWbm/satin.jpg" alt="Abayas">
         </div>
         <div class="image">
-          <img src="https://i.ibb.co/44kbdC1/chiffon-1.jpg" alt="Abayas">
+          <img src="https://i.ibb.co/QX1fNp4/satin-6.jpg" alt="Abayas">
         </div>
         <div class="image">
           <img src="https://i.ibb.co/fXhchNb/jilbab-1.jpg'" alt="Abayas">
         </div>
       </div><br><br>
-      <p>Visit <a href="https://abaya-boutique.com" target="_blank">Abaya Boutique</a> to explore more.</p>
+      <p>Visit <a href="https://abaya-boutique.com" target="_blank">Haanim's Closet</a> to explore more.</p>
     </div>
   </div>
 </template>

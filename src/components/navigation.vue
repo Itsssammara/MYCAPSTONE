@@ -10,9 +10,9 @@
     <router-link to="/checkout" class="sidebar-link">Checkout</router-link>
     <router-link to="/admin" class="sidebar-link">Admin</router-link>
     <router-link to="/login" class="sidebar-link">Login</router-link>
-    <router-link to="/signup" class="sidebar-link">Sign Up</router-link>
+    <router-link to="/signup" class="sidebar-link" v-if="!loggedInUser">Sign Up</router-link>
     <router-link to="/contact" class="sidebar-link">Contact</router-link>
-    <router-link to="/test" class="sidebar-link">test</router-link>
+    <router-link to="/test" class="sidebar-link" v-if="!loggedInUser">test</router-link>
   </div>
   <div class="content" :style="{ marginLeft: contentMargin + 'px' }">
     <div class="navbar" style="z-index: 50;">
@@ -52,6 +52,34 @@ export default {
     closeNav() {
       this.sidebarWidth = 0;
       this.contentMargin = 0;
+    }
+  },
+  computed:{
+    loggedInUser() {
+      // Fetch user data from cookies
+      const cookies = document.cookie.split(';').map(cookie => cookie.trim());
+      const userCookie = cookies.find(cookie => cookie.startsWith('LegitUser='));
+      
+      // If user cookie exists, parse and return user data
+      if (userCookie) {
+        try {
+          const userData = JSON.parse(userCookie.split('=')[1]);
+          if (userData && userData.result) {
+            return userData.result; // Return user data with firstName and lastName
+          } else {
+            console.error('Invalid user data format:', userData);
+            return null;
+          }
+        } catch (error) {
+          console.error('Error parsing user data:', error);
+          return null;
+        }
+      } else {
+        return null; // Return null if user cookie doesn't exist
+      }
+    },
+    isAdmin(){
+      return this.loggedInUser && this.loggedInUser.userRole === 'admin'
     }
   }
 };

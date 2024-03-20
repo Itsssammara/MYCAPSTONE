@@ -4,11 +4,11 @@
       <form action="/signup" method="POST">
       <div class="data">
         <label for="email">Email</label>
-        <input type="email" id="email" name="email" v-model="user.emailAdd" required>
+        <input type="email" id="email" name="email" v-model="emailAdd" required>
       </div>
       <div class="data">
         <label for="password">Password</label>
-        <input type="password" id="password" name="password" v-model="user.userPass" required>
+        <input type="password" id="password" name="password" v-model="userPass" required>
       </div>
       <router-link to="#">
         <button type="submit" class="btn">Login </button>

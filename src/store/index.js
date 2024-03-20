@@ -3,7 +3,7 @@ import axios from "axios";
 import sweet from "sweetalert";
 import { useCookies } from "vue3-cookies";
 import router from "@/router";
-import AuthenticateUser from "../service/AuthenticateUser";
+import AuthenticateUser from "../service/AuthenticateUser.js";
 
 const { cookies } = useCookies();
 
@@ -34,7 +34,7 @@ export default createStore({
   actions: {
     async register(context, payload) {
       try {
-        let { message } = await axios.post(`${baseURL}users/register`, payload).data;
+        let { message,token } = await axios.post(`${baseURL}users/register`, payload).data;
         console.log(message);
         context.dispatch("fetchUsers");
         sweet({
@@ -129,70 +129,48 @@ export default createStore({
         });
       }
     },
-    async login(context, packet) {
+    async login(context, payload) {
       try {
-        const { msg, token, result } = (
-          await axios.post(`${baseURL}users/login`, packet)
-        ).data;
-        if (result) {
-          context.commit("setUser", { msg, result });
-          cookies.set("LegitUser", {
-            msg,
-            token,
-            result,
-          });
-          AuthenticateUser.applyToken(token);
+        const response = await axios.post('https://mycapstone-1.onrender.com/users/login', payload);
+        const { msg, token, result } = response.data;
+
+        if (token) {
+          context.commit('setUser', result);
+          applyToken(token);
+
+          document.cookie = `LegitUser=${JSON.stringify({ msg, token, result })}; path=/`;
+
           sweet({
             title: msg,
-            text: `Welcome back, ${result?.firstName} ${result?.lastName}`,
+            text: `Welcome back, ${result.firstName} ${result.lastName}`,
             icon: "success",
             timer: 2000,
+            showConfirmButton: false
           });
-          router.push({ name: "home" });
+
+          router.push({ name: 'home' });
+          setTimeout(() => {
+            window.location.reload();
+          }, 1750);
         } else {
           sweet({
-            title: "info",
+            title: 'Info',
             text: msg,
-            icon: "info",
+            icon: 'info',
             timer: 2000,
           });
         }
-      } catch (e) {
+      } catch (error) {
+        console.error('Error during login:', error);
         sweet({
-          title: "Error",
-          text: "Failed to login.",
-          icon: "error",
+          title: 'Error',
+          text: 'Failed to login. Please try again later.',
+          icon: 'error',
           timer: 2000,
         });
       }
     },
-    async getProducts({commit}) {
-      let { data } = await axios.get(baseURL + "products");
-      console.log(data.results);
-      commit("setProducts", data.results);
-    },
-    async fetchProduct(context, packet) {
-      try {
-        let { result } = (await axios.get(`${baseURL}products/${packet.id}`)).data;
-        if (result) {
-          context.commit("setProduct", result);
-        } else {
-          sweet({
-            title: "Retrieving a single product",
-            text: "Product was not found",
-            icon: "info",
-            timer: 2000,
-          });
-        }
-      } catch (e) {
-        sweet({
-          title: "Error",
-          text: "A product was not found.",
-          icon: "error",
-          timer: 2000,
-        });
-      }
-    },
+    
     async deleteProduct({ commit, dispatch }, packet) {
       try {
         await axios.delete(`${baseURL}products/delete/${packet.id}`);

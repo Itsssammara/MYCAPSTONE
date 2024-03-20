@@ -1,7 +1,7 @@
 <template>
   <navigation/>
   <main>
-
+<spinner/>
   </main>
   <Footer/>
 </template>
