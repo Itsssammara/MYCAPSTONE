@@ -1,106 +1,115 @@
 <template>
-    <div class="login">
-      <h1>Login</h1>
-      <form action="/signup" method="POST">
-      <div class="data">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" v-model="emailAdd" required>
-      </div>
-      <div class="data">
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" v-model="userPass" required>
-      </div>
-      <router-link to="#">
-        <button type="submit" class="btn">Login </button>
-      </router-link>
-      <div class="regist-link">Don't have an account?
-       <router-link to="/signup">Sign up now</router-link>
-      </div>
-      
-      </form>
-    </div>
-  </template>
+  <div class="content">
+    <div class="signup-container">
+      <h1 class="signup-title">Welcome back!</h1>
 
-  <script>
-  
-  export default{
-    name: 'Login',
-    data(){
-      return{
-        email:"",
-        password:""
-      };
-    },
-    methods:{
-      login(){
-        
-      }
+      <div class="form-floating w-75 mx-auto mb-3">
+        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" v-model="payload.emailAdd">
+        <label for="floatingInput">Email address</label>
+      </div>
+      <div class="form-floating w-75 mx-auto mb-3">
+        <input type="password" class="form-control" id="floatingPassword" placeholder="Password" v-model="payload.userPass">
+        <label for="floatingPassword">Password</label>
+      </div>
+
+      <button class="btn btn-primary btn-block" type="button" @click="login">Login</button>
+      
+      <div class="regist-link">Don't have an account? 
+          <router-link to="/signup">Sign up here</router-link>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      payload: {
+        emailAdd: "",
+        userPass: ""
+      },
+    };
+  },
+  computed: {
+    users() {
+      return this.$store.state.users;
+    }
+  },
+  methods: {
+    login() {
+      this.$store.dispatch('login', this.payload);
     }
   }
-  </script>
+};
+</script>
 
-  <style scoped>
-  *{
-    margin: 0;
-    padding: 0;
-    box-sizing:border-box;
+<style scoped>
+.content {
+  background-image: url('https://i.postimg.cc/yYy6dSBN/contactbg.jpg');
+  background-size: cover;
+  background-position: center;
+  width: 100vw; /* Full width of the viewport */
+  height: 100vh; /* Full height of the viewport */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.signup-container {
+  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  margin-bottom: 110px;
+}
+
+.signup-title {
+  font-size: 28px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #000000;
+}
+
+.form-floating input[type="email"],
+.form-floating input[type="password"] {
+  border: none;
+  border-bottom: 1px solid #ccc;
+  border-radius: 0;
+  background-color: transparent;
+}
+
+.form-floating input[type="email"]:focus,
+.form-floating input[type="password"]:focus {
+  border-color: #6c757d;
+}
+
+.btn-primary {
+  background-color: #d45693;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #d45693;
+  box-shadow: 0 0 10px rgba(212, 86, 147, 0.5);
+}
+/* Media Queries */
+@media only screen and (max-width: 768px) {
+  .signup-container {
+    width: 90%;
   }
-  .login{
-    background-color: rgb(226, 165, 112);
-    height: 100vh;
+}
+
+@media only screen and (max-width: 576px) {
+  .signup-container {
+    width: 80%;
   }
-  .login form{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    display: block;
-    background: white;
-    width: 410px;
-    padding: 30px;
+}
+
+@media only screen and (max-width: 400px) {
+  .signup-title {
+    font-size: 24px;
   }
-  .login form .data{
-    height: 45px;
-    width: 100%;
-    margin: 40px 0;
-  }
-  form .data label{
-    font-size: 18px;
-  }
-  form .data input {
-    height: 100%;
-    widows: 100%;
-    padding-left: 10px;
-    font-size: 17px;
-    border: 1px solid silver;
-  }
-  form .data input:focus{
-    border-color: brown;
-    border-bottom-width: 2px;
-  }
-  form button{
-    margin: 30px 0;
-    height: 45px;
-    widows: 100%;
-  }
-  form button.btn {
-    width: 100%;
-    background: none;
-    border: none;
-    color: white;background: black;
-    font-size: 18px;
-    font-weight: 500;
-    text-transform: uppercase;letter-spacing: 1px;
-    cursor: pointer;
-  }
-  form .regist-link{
-    text-align: center;
-  }
-  form .regist-link router-link{
-  color: blue;
-  text-decoration: none;
-  }
-  form .regist-link router-link:hover{
-    text-decoration: underline;
-  }
-  </style>
+}
+</style>

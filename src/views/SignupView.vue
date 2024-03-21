@@ -16,10 +16,10 @@
           <input type="password" class="form-control" placeholder="Password" v-model="payload.userPass">
         </div>
         <div class="form-group">
-          <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
+          <button type="submit" class="btn btn-primary btn-block">Create</button>
         </div>
         <div class="regist-link">Already have an account?
-          <router-link to="/signup">Login now</router-link>
+          <router-link to="/login">Login now</router-link>
         </div>
       </form>
     </div>
@@ -90,6 +90,7 @@ export default {
   border-radius: 8px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   width: 500px;
+  margin-bottom: 130px;
 }
 
 .signup-title {
@@ -130,5 +131,31 @@ export default {
 
 .regist-link {
   color: #000000;
+}
+/* Media Queries */
+@media only screen and (max-width: 768px) {
+  .signup-container {
+    width: 90%; /* Adjust width for smaller screens */
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .signup-container {
+    width: 80%; /* Further adjust width for smaller screens */
+  }
+
+  .signup-title {
+    font-size: 24px; /* Adjust title font size for smaller screens */
+  }
+
+  .signup-form .form-control {
+    font-size: 14px; /* Adjust input font size for smaller screens */
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .signup-container {
+    width: 95%; /* Further adjust width for smaller screens */
+  }
 }
 </style>

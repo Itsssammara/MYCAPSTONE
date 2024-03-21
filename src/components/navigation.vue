@@ -7,10 +7,10 @@
       <router-link to="/products" class="sidebar-link">Products</router-link>
       <router-link to="/checkout" class="sidebar-link">Checkout</router-link>
       <router-link to="/admin" class="sidebar-link">Admin</router-link>
-      <router-link to="/login" class="sidebar-link">Login</router-link>
+      <router-link to="/login" class="sidebar-link" v-if="!loggedInUser">Login</router-link>
       <router-link to="/signup" class="sidebar-link" v-if="!loggedInUser">Sign Up</router-link>
       <router-link to="/contact" class="sidebar-link">Contact</router-link>
-      <router-link to="/test" class="sidebar-link" v-if="!loggedInUser">test</router-link>
+    
     </div>
     <div class="content" :style="{ marginLeft: contentMargin + 'px' }">
       <div class="navbar fixed-navbar" style="z-index: 50;">

@@ -56,12 +56,6 @@
       <h2 class="display-4">Products</h2>
     </div>
     <div class="row">
-      <div class="col">
-        <!-- <button class="btn btn-success" @click="addProduct()">Add</button> -->
-        <AddProd/>
-      </div>
-    </div>
-    <div class="row">
       <table>
         <!-- Table Headers -->
         <thead>
@@ -145,4 +139,23 @@ export default {
   }
 };
 </script>
+<style scoped>
+.container {
+  padding: 20px;
+}
 
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+</style>
