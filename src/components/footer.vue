@@ -10,8 +10,7 @@
       </ul>
     </div>
     <div class="footer-column">
-      <h5>Contact Details</h5>
-      <p>Cape Town, South Africa</p>
+      <h5>For More Info :</h5>
       <p>Email: info@modestelegance.com</p>
       <p>Phone: +1234567890</p>
     </div>
@@ -37,19 +36,20 @@ export default {
   background: linear-gradient(to right, #b86b77 0%, #d99b6c 100%);
   color: #dcdfb2;
   text-align: center;
-  padding: 40px 20px;
+  padding: 20px 10px;
   display: flex;
-  justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 .footer-column {
-  flex: 1;
-  margin: 0 20px;
+  flex: 1 1 100%;
+  margin: 0 5px;
+  margin-bottom: 20px;
 }
 
 .footer-column h3 {
-  font-size: 18px;
-  margin-bottom: 20px;
+  font-size: 16px;
+  margin-bottom: 10px;
 }
 
 .footer-column ul {
@@ -58,7 +58,7 @@ export default {
 }
 
 .footer-column ul li {
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .footer-column ul li a {
@@ -82,10 +82,32 @@ export default {
 .social-link {
   color: #333;
   text-decoration: none;
-  margin-right: 10px;
+  margin-right: 5px;
 }
 
 .social-link:hover {
   color: #eb4d4b;
+}
+
+/* Media Queries */
+@media only screen and (min-width: 768px) {
+  .footer-column {
+    flex: 1;
+  }
+
+  .footer-column h3 {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .footer-column {
+    flex: 1;
+    margin: 0 20px;
+  }
+
+  .footer-column h3 {
+    font-size: 20px;
+  }
 }
 </style>

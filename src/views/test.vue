@@ -58,6 +58,7 @@ export default {
   border-radius: 10px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   width: 400px;
+  margin-bottom: 110px;
 }
 
 .signup-title {
@@ -88,5 +89,23 @@ export default {
 .btn-primary:hover {
   background-color: #d45693;
   box-shadow: 0 0 10px rgba(212, 86, 147, 0.5);
+}
+/* Media Queries */
+@media only screen and (max-width: 768px) {
+  .signup-container {
+    width: 90%;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .signup-container {
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .signup-title {
+    font-size: 24px;
+  }
 }
 </style>
