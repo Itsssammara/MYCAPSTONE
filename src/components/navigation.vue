@@ -89,19 +89,19 @@ export default {
   width: 100%;
   top: 0;
   left: 0;
-  z-index: 1000; /* Ensure the navbar appears above other content */
+  z-index: 1000; 
 }
 
 .content {
-  padding-top: 60px; /* Adjust content padding to accommodate fixed navbar */
+  padding-top: 60px; 
 }
   .navbar {
   display: flex;
-  justify-content: flex-start; /* Align items to the left */
-  align-items: center; /* Center vertically */
+  justify-content: flex-start; 
+  align-items: center; 
   }
 .open-btn{
-    color: #000000;/*color of open btn */
+    color: #000000;
     /* margin-left: 100hw; */
 }
 
@@ -169,7 +169,7 @@ export default {
     right: 10px;
     font-size: 36px;
     margin-left: 50px;
-    color: rgb(255, 255, 255);/*adjusts color of close btn*/
+    color: rgb(255, 255, 255);
     background: none;
     border: none;
     cursor: pointer;
@@ -178,49 +178,49 @@ export default {
     color: #ccc;
   }
   .navbar {
-    background-color: #ffffff; /* Dark color for the navbar background */
-    padding: 0.5rem 0.1rem; /* Add padding to the navbar */
+    background-color: #ffffff; 
+    padding: 0.5rem 0.1rem; 
   }
   .navbar-brand {
-    margin-right: auto; /* Make the brand logo push to the left */
+    margin-right: auto; 
   }
   .nav-link {
-    color: #D4D4D4; /* Light color for the link text */
+    color: #D4D4D4; 
     text-decoration: none;
-    padding: 0.5rem 1rem; /* Add padding to the links */
-    margin-right: 0.5rem; /* Add margin between the links */
-    border-radius: 0.25rem; /* Add a slight border-radius to the links */
-    transition: background-color 0.3s; /* Smooth background color transition */
+    padding: 0.5rem 1rem;
+    margin-right: 0.5rem;
+    border-radius: 0.25rem; 
+    transition: background-color 0.3s; 
   }
   .nav-link:hover {
-    background-color: transparent; /* Light blue color on hover */
+    background-color: transparent; 
   }
   .router-link-exact-active {
-    background-color: #EAEFF8; /* Light blue color for the active link */
+    background-color: #EAEFF8; 
   }
   .router-link-exact-active:hover {
-    background-color: #FFFFFF; /* Keep the same color on hover for the active link */
+    background-color: #FFFFFF;
   }
   .router-link-exact-active .nav-link {
-    color: #c3b6b6; /* White color for the active link text */
+    color: #c3b6b6; 
   }
   .logo-container {
   display: flex;
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
-  height: auto; /* Set the height of the logo */
-  width: 100%; /* Adjust the width as needed */
-  margin-top: 10px; /* Optional: Adjust margin top */
+  justify-content: center; 
+  align-items: center; 
+  height: auto; 
+  width: 100%; 
+  margin-top: 10px; 
 }
 
 .logo-img {
-  height: 40px; /* Set the height of the logo */
-  width: auto; /* Allow the width to adjust automatically */
-  margin-right: 90px; /* Optional: Adjust margin right */
-  margin-left: 30px; /* Optional: Adjust margin left */
+  height: 40px;
+  width: auto; 
+  margin-right: 90px;
+  margin-left: 30px; 
 }
 
-  /* Adjust navbar for medium and small devices (<992px) */
+  
   @media (max-width: 991.98px) {
     .navbar {
       padding: 0.2rem 0.1rem; /* Reduce padding for smaller screens */
@@ -241,19 +241,19 @@ export default {
       padding: 0.25rem;
     }
   }
-  /* Adjust navbar for medium and small devices (<992px) */
+  /* media query for medium and small devices (<992px) */
 @media (max-width: 991.98px) {
   .content {
-    padding-top: 50px; /* Adjust padding for smaller screens */
+    padding-top: 50px; 
   }
 }
   .sidebar {
   height: 100%;
-  width: 250px; /* Adjust the width as needed */
+  width: 250px; 
   position: fixed;
   top: 0;
   left: 0;
-  background-color: #e9afaf; /* Adjusts the bg color of sidebar*/
+  background-color: #e9afaf; 
   overflow-x: hidden;
   padding-top: 20px;
 }
@@ -262,11 +262,43 @@ export default {
   padding: 10px 15px;
   text-decoration: none;
   display: block;
-  color: #bcb1b1; /* Adjust the text color */
+  color: #bcb1b1; 
 }
 
 .sidebar-link:hover {
-  background-color: #ffd1d1; /* Adjust the hover background color */
+  background-color: #ffd1d1;
+}
+/* .logo-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1001; 
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  height: auto; 
+  width: 100%;
+  margin-top: 10px; 
+} */
+
+.open-btn {
+  position: fixed;
+  top: 0;
+  left: 10px;
+  z-index: 1001; 
+  font-size: 25px;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* Adjust navbar for medium and small devices (<992px) */
+@media (max-width: 991.98px) {
+  .logo-img {
+    margin-top: 2px;
+    height: 30px;
+    width: 170px;
+  }
 }
 
   </style>
