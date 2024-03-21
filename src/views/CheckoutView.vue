@@ -10,7 +10,7 @@
                 <th>Name</th>
                 <th>Price</th>
                 <th>Quantity</th>
-                <th>Action</th> <!-- Column for 'Add to Cart' action -->
+                <th>Action</th>
               </tr>
             </thead>
             <tbody>
@@ -18,7 +18,7 @@
                 <td>{{ index + 1 }}</td>
                 <td><img :src="item.prodURL" alt="item.prodName" style="max-width: 50px;"></td>
                 <td>{{ item.prodName }}</td>
-                <td>R{{ item.productAmount.toFixed(2) }}</td>
+                <td>R{{ item.amount }}</td>
                 <td>
                   <input type="number" class="quantity-input" placeholder="Qty" min="1" v-model.number="item.quantity">
                 </td>
@@ -29,7 +29,7 @@
             </tbody>
           </table>
         </main>
-        <div id="totalAmount">Total Amount: R{{ totalAmount.toFixed(2) }}</div><br>
+        <div id="totalAmount">Total Amount: R{{ totalAmount }}</div><br>
         <div>
           <button id="payButton" @click="handlePayment">Buy Now</button>
         </div>
@@ -41,39 +41,6 @@
   
   export default {
     name: "CheckoutView",
-    data() {
-      return {
-        products: [/* Array of product objects */],
-        bought: JSON.parse(localStorage.getItem("bought")) || [],
-      };
-    },
-    computed: {
-    totalAmount() {
-      if (!this.bought || !this.bought.length) {
-        return 0;
-      }
-      const total = this.bought.reduce((acc, item) => {
-        const price = Number(item.productAmount);
-        const quantity = Number(item.quantity || 0);
-        return acc + (price * quantity);
-      }, 0);
-      return total ? total.toFixed(2) : '0.00';
-    },
-  },
-    methods: {
-      addToCart(product, quantity) {
-        const productIndex = this.bought.findIndex(item => item.prodID === product.prodID);
-        if (productIndex === -1) {
-          // Product not in cart, add new entry with specified quantity
-          this.bought.push({ ...product, quantity });
-        } else {
-          // Product already in cart, update the quantity
-          this.bought[productIndex].quantity += quantity;
-        }
-        localStorage.setItem("bought", JSON.stringify(this.bought));
-        alert(`${quantity} x ${product.prodName} added to the cart.`);
-      },
-    },
   }
   </script>
   
@@ -87,7 +54,7 @@
   
   main.main2, .main2 th, .main2 td {
     background-color: #f9f9f9;
-    color: #333;
+    color: #ffffff;
   }
   
   .main2 th, .main2 td {
@@ -97,7 +64,7 @@
   }
   
   .main2 th {
-    background-color: #b86b77;
+    background-color: #c76c6c;
     color: #fff;
     font-size: 1.05em;
   }
@@ -111,23 +78,23 @@
     background-color: #ddd;
   }
   
-  /* Pay button */
   #payButton {
-    display: block;
-    width: 200px;
-    background: linear-gradient(to right, #b86b77 0%, #d99b6c 100%);
-    color: white;
+    background-color: #fff;
+    border: 2px solid #000;
+    transition: all 0.3s;
+    border-radius: 0%;
+    width: 300px;
+    display: block;;
     padding: 10px 20px;
-    border: none;
     cursor: pointer;
-    border-radius: 5px;
     font-size: 1rem;
     margin: 20px auto; 
     transition: background-color 0.2s, transform 0.2s;
   }
   
   #payButton:hover {
-    background-color: #218838; 
+    background-color: #000; 
+    color: #fff;
     transform: scale(1.05);
   }
   
@@ -140,7 +107,7 @@
   }
   
   #totalAmount {
-    background: #d99b6c;
+    background: #c76c6c;
     color: #fff;
     text-align: center;
     font-weight: bold;

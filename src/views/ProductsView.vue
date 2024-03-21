@@ -10,7 +10,7 @@
           </div>
           <div class="card-body">
             <h5 class="card-title">{{ product.prodName }}</h5>
-              <p class="text-gray">In stock</p>
+              <p class="text-gray">{{ product.category }}</p>
             <b><p class="card-text">R{{ product.amount }}.00</p></b>
             
           </div>

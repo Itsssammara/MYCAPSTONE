@@ -15,7 +15,6 @@ export default createStore({
     user: null,
     products: [],
     product: null,
-    cart: [], // Added missing cart state
   },
   getters: {},
   mutations: {
@@ -44,10 +43,11 @@ export default createStore({
       state.cart[index].quantity++;
     },
   },
+  
   actions: {
     async register(context, payload) {
       try {
-        let { message, token } = (await axios.post(`${baseURL}users/register`, payload)).data; // Removed unnecessary .data
+        let { message,token } = await axios.post(`${baseURL}users/register`, payload).data;
         console.log(message);
         context.dispatch("fetchUsers");
         sweet({
@@ -102,11 +102,11 @@ export default createStore({
         });
       }
     },
-    async updateUser(context, { id, packet }) {
+    async updateUser(context, {id, packet}) {
       try {
-        let { msg } = await axios.patch(`${baseURL}users/update/${id}`, packet);
+        let { msg } = await axios.patch(`${baseURL}users/update/${id}`,packet);
         if (msg) {
-          context.dispatch("fetchUsers");
+          context.dispatch("setUsers");
           sweet({
             title: "Update user",
             text: msg,
@@ -144,7 +144,7 @@ export default createStore({
     },
     async login(context, payload) {
       try {
-        const response = await axios.post(`${baseURL}users/login`, payload); // Updated the URL
+        const response = await axios.post('https://mycapstone-1.onrender.com/users/login', payload);
         const { msg, token, result } = response.data;
 
         if (token) {
@@ -183,6 +183,7 @@ export default createStore({
         });
       }
     },
+    
     async deleteProduct({ commit, dispatch }, packet) {
       try {
         await axios.delete(`${baseURL}products/delete/${packet.id}`);
@@ -204,7 +205,7 @@ export default createStore({
     },
     async addProduct(context, packet) {
       try {
-        let { message } = (await axios.post(`${baseURL}products/addProduct`, packet)).data; // Removed unnecessary .data
+        let { message } = await axios.post(`${baseURL}products/addProduct`, packet);
         console.log(message);
         context.dispatch("fetchProducts");
         sweet({
@@ -217,22 +218,6 @@ export default createStore({
         sweet({
           title: "Error",
           text: "Please try again later",
-          icon: "error",
-          timer: 2000,
-        });
-      }
-    },
-    async fetchProducts(context) {
-      try {
-        let { results } = (await axios.get(`${baseURL}products`)).data;
-        console.log(results);
-        if (results) {
-          context.commit("setProducts", results);
-        }
-      } catch (e) {
-        sweet({
-          title: "Error",
-          text: "An error occurred when retrieving products.",
           icon: "error",
           timer: 2000,
         });

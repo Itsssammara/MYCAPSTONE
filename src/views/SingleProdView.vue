@@ -1,29 +1,32 @@
 <template>
-    <div class="container">
-      <h1>Our Products</h1>
-      <div>
-        <card v-if="product">
-          <template #header>
-            <h4>{{ product.prodName }}</h4>
-          </template>
-          <template #body>
-            <img :src="product.prodUrl" alt="hijabs">
-            <p>R{{ product.amount }}</p>
-          </template>
-          <template #footer>
-            <button class="btn btn-primary">
-              Add to Cart
-            </button>
-            <div class="back-to-products">
-              <router-link :to="{ name: 'products' }" class="btn btn-secondary">
-                Back to Products
-              </router-link>
-            </div>
-          </template>
-        </card>
+  <card v-if="product">
+    <template #header>
+      <h4 class="card-header">{{ product.prodName }}</h4>
+    </template>
+    <template #body>
+      <img :src="product.prodUrl" alt="hijabs"><br><br>
+      <p class="text-gray">In stock</p>
+      <strong><p>R{{ product.amount }}.00</p></strong>
+      <!-- Quantity buttons -->
+      <div class="quantity-container">
+        <button class="quantity-btn" @click="decrementQuantity">-</button>
+        <span class="quantity">{{ product.quantity }}</span>
+        <button class="quantity-btn" @click="incrementQuantity">+</button>
+      </div><br>
+      <!-- Add to Cart button -->
+      <button class="btn btn-primary white-btn" @click="addToCart">
+        Add to Cart
+      </button>
+    </template>
+    <template #footer>
+      <div class="back-to-products">
+        <router-link :to="{ name: 'products' }" class="btn btn-secondary">
+          Back to Products
+        </router-link>
       </div>
-    </div>
-  </template>
+    </template>
+  </card>
+</template>
   
   <script>
   import card from '../components/card.vue'
@@ -38,33 +41,80 @@
         return this.$store.state.product
       }
     },
+    data() {
+    return {
+      quantity: 1 // default quantity
+    }
+  },
     methods:{
-      addToCart(){
-        this.$store.dispatch('addToCart', this.product);
-        alert('Item added successfully!');
+      addToCart() {
+      // Add product to cart with specified quantity
+      this.$store.dispatch('addToCart', { product: this.product, quantity: this.quantity });
+      alert('Item added successfully!');
+    },
+    incrementQuantity() {
+      // Increment quantity
+      this.quantity++;
+    },
+    decrementQuantity() {
+      // Decrement quantity, but ensure it's not less than 1
+      if (this.quantity > 1) {
+        this.quantity--;
       }
-    },
-    mounted() {
-      this.$store.dispatch('fetchProduct', this.$route.params)
-    },
-  }
+    }
+  },
+  mounted() {
+    this.$store.dispatch('fetchProduct', this.$route.params)
+  },
+};
   </script>
   
   <style scoped>
+
   .back-to-products {
     margin-top: 20px;
   }
-  
-  .btn-primary {
-    background-color: #007bff;
-    border-color: #007bff;
+  .card-header {
+    background-color: #ce7fa9;
     color: #fff;
-    transition: all 0.3s;
+    padding: 10px;
+    margin: 0;
   }
   
-  .btn-primary:hover {
-    background-color: #0056b3;
-    border-color: #0056b3;
+  .btn-primary.white-btn {
+    background-color: #fff;
+    border: 2px solid #000;
+    color: #000;
+    transition: all 0.3s;
+    border-radius: 0%;
+    width: 300px;
   }
+
+  .btn-primary.white-btn:hover {
+    background-color: #000;
+    color: #fff;
+  }
+  .text-gray {
+  color: rgb(95, 94, 94);
+  }
+  /* Style for quantity buttons */
+.quantity-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quantity-btn {
+  width: 30px;
+  height: 30px;
+  background-color: #eee;
+  border: none;
+  cursor: pointer;
+}
+
+.quantity {
+  margin: 0 10px;
+  font-size: 18px;
+}
   </style>
   

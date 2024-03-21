@@ -1,27 +1,26 @@
 <template>
   <div class="footer">
     <div class="footer-column">
-      <h3>Quick Links</h3>
+      <h3>MENU</h3>
       <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Products</a></li>
-        <li><a href="#">About Us</a></li>
-        <li><a href="#">Contact Us</a></li>
+        <li><router-link to="/" tag="span" class="footer-link">Home</router-link></li>
+        <li><router-link to="/products" tag="span" class="footer-link">Products</router-link></li>
+        <li><router-link to="/about" tag="span" class="footer-link">About Us</router-link></li>
+        <li><router-link to="/contact" tag="span" class="footer-link">Contact Us</router-link></li>
       </ul>
     </div>
     <div class="footer-column">
       <h5>Contact Details</h5>
-      <p>314 Imam Haron Road</p>
-      <p>City, Country</p>
+      <p>Cape Town, South Africa</p>
       <p>Email: info@modestelegance.com</p>
       <p>Phone: +1234567890</p>
     </div>
     <div class="footer-column">
       <h3>Follow Us</h3>
       <ul>
-        <li><a href="#">Facebook</a></li>
-        <li><a href="#">Instagram</a></li>
-        <li><a href="#">Twitter</a></li>
+        <li><a href="#" class="social-link">Facebook</a></li>
+        <li><a href="#" class="social-link">Instagram</a></li>
+        <li><a href="#" class="social-link">Twitter</a></li>
       </ul>
     </div>
   </div>
@@ -35,20 +34,22 @@ export default {
 
 <style>
 .footer {
-  background-color: #ffffff;
-  color: #000000;
+  background: linear-gradient(to right, #b86b77 0%, #d99b6c 100%);
+  color: #dcdfb2;
   text-align: center;
-  padding: 20px;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: space-around;
 }
 
 .footer-column {
-  display: inline-block;
-  margin: 0 80px; /* Adjust margin between columns */
+  flex: 1;
+  margin: 0 20px;
 }
 
 .footer-column h3 {
   font-size: 18px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .footer-column ul {
@@ -57,15 +58,34 @@ export default {
 }
 
 .footer-column ul li {
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 .footer-column ul li a {
-  color: #000000;
+  color: #dcdfb2;
   text-decoration: none;
 }
 
 .footer-column ul li a:hover {
   text-decoration: underline;
+}
+
+.footer-link {
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: #eb4d4b;
+}
+
+.social-link {
+  color: #333;
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+.social-link:hover {
+  color: #eb4d4b;
 }
 </style>

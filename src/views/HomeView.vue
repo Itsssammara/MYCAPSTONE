@@ -28,7 +28,7 @@ export default {
   background-image: url('https://i.postimg.cc/J4KV8F7g/hoosenhijab3women.png');
   background-size: cover;
   background-position: center;
-  width: 100vw; /* Full width of the viewport */
+  width: 100%; /* Full width of the viewport */
   height: 100vh; /* Full height of the viewport */
   display: flex;
   justify-content: center;

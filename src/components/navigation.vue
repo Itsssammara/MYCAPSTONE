@@ -1,28 +1,26 @@
 <template>
   <div>
-    <p class="header-sml"> RAMADAN SURPRISE #2 - 30% OFF SOLID CHIFFONS! CODE: CHIFFON30 SHOP NOW! </p>
-  </div>
-  <div class="sidebar" :style="{ width: sidebarWidth + 'px', zIndex: 100 }">
-    <button class="close-btn" @click="closeNav">&times;</button><br><br>
-    <router-link to="/" class="sidebar-link">Home</router-link>
-    <router-link to="/about" class="sidebar-link">About</router-link>
-    <router-link to="/products" class="sidebar-link">Products</router-link>
-    <router-link to="/checkout" class="sidebar-link">Checkout</router-link>
-    <router-link to="/admin" class="sidebar-link">Admin</router-link>
-    <router-link to="/login" class="sidebar-link">Login</router-link>
-    <router-link to="/signup" class="sidebar-link" v-if="!loggedInUser">Sign Up</router-link>
-    <router-link to="/contact" class="sidebar-link">Contact</router-link>
-    <router-link to="/test" class="sidebar-link" v-if="!loggedInUser">test</router-link>
-  </div>
-  <div class="content" :style="{ marginLeft: contentMargin + 'px' }">
-    <div class="navbar" style="z-index: 50;">
-      <div class="logo-container">
-          <button class="open-btn" @click="openNav">&#9776;</button>
-          <img src="https://i.postimg.cc/kGLpVP38/thelogo.png" alt="Logo" class="logo-img">
-      </div>
+    <div class="sidebar" :style="{ width: sidebarWidth + 'px', zIndex: 100 }">
+      <button class="close-btn" @click="closeNav">&times;</button><br><br>
+      <router-link to="/" class="sidebar-link">Home</router-link>
+      <router-link to="/about" class="sidebar-link">About</router-link>
+      <router-link to="/products" class="sidebar-link">Products</router-link>
+      <router-link to="/checkout" class="sidebar-link">Checkout</router-link>
+      <router-link to="/admin" class="sidebar-link">Admin</router-link>
+      <router-link to="/login" class="sidebar-link">Login</router-link>
+      <router-link to="/signup" class="sidebar-link" v-if="!loggedInUser">Sign Up</router-link>
+      <router-link to="/contact" class="sidebar-link">Contact</router-link>
+      <router-link to="/test" class="sidebar-link" v-if="!loggedInUser">test</router-link>
     </div>
-    
-    <router-view/>
+    <div class="content" :style="{ marginLeft: contentMargin + 'px' }">
+      <div class="navbar fixed-navbar" style="z-index: 50;">
+        <div class="logo-container">
+            <button class="open-btn" @click="openNav">&#9776;</button>
+            <img src="https://i.postimg.cc/kGLpVP38/thelogo.png" alt="Logo" class="logo-img">
+        </div>
+      </div>
+      <router-view/>
+    </div>
   </div>
 </template>
 
@@ -86,14 +84,17 @@ export default {
 </script>
 
   <style>
-  .header-sml {
-    text-align: center;
-    background-color: rgb(0, 0, 0);
-    color: #ffffff;
-    font-size: x-small;
-    padding: 5px;
-    margin: 0px;
-  }
+.fixed-navbar {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000; /* Ensure the navbar appears above other content */
+}
+
+.content {
+  padding-top: 60px; /* Adjust content padding to accommodate fixed navbar */
+}
   .navbar {
   display: flex;
   justify-content: flex-start; /* Align items to the left */
@@ -240,6 +241,12 @@ export default {
       padding: 0.25rem;
     }
   }
+  /* Adjust navbar for medium and small devices (<992px) */
+@media (max-width: 991.98px) {
+  .content {
+    padding-top: 50px; /* Adjust padding for smaller screens */
+  }
+}
   .sidebar {
   height: 100%;
   width: 250px; /* Adjust the width as needed */
