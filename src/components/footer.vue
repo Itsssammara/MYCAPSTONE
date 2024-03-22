@@ -17,9 +17,9 @@
     <div class="footer-column">
       <h3>Follow Us</h3>
       <ul>
-        <li><a href="#" class="social-link">Facebook</a></li>
-        <li><a href="#" class="social-link">Instagram</a></li>
-        <li><a href="#" class="social-link">Twitter</a></li>
+      <a href="#" class="icon" id="whatsapp-icon"><i class="fa-brands fa-square-whatsapp"></i></a>
+      <a href="#" class="icon" id="instagram-icon"><i class="fa-brands fa-square-instagram"></i></a>
+      <a href="#" class="icon" id="facebook-icon"><i class="fa-brands fa-square-facebook"></i></a>
       </ul>
     </div>
   </div>
@@ -110,4 +110,5 @@ export default {
     font-size: 20px;
   }
 }
+
 </style>

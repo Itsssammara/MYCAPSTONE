@@ -15,11 +15,11 @@
         <label for="message"></label><br>
         <textarea id="message" name="message" placeholder="What's on your mind?" required></textarea><br>
         <input type="submit" value="Submit">
-      </form>
+      </form><br>
       <div class="social-icons">
-      <a href="#" class="icon" id="facebook-icon"><i class="fab fa-facebook-f"></i></a>
-      <a href="#" class="icon" id="twitter-icon"><i class="fab fa-twitter"></i></a>
-      <a href="#" class="icon" id="instagram-icon"><i class="fab fa-instagram"></i></a>
+      <a href="#" class="icon" id="whatsapp-icon"><i class="fa-brands fa-square-whatsapp"></i></a>
+      <a href="#" class="icon" id="instagram-icon"><i class="fa-brands fa-square-instagram"></i></a>
+      <a href="#" class="icon" id="facebook-icon"><i class="fa-brands fa-square-facebook"></i></a>
     </div>
     </div>
     
@@ -97,19 +97,34 @@
   
   /* Social Icons */
   .social-icons {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-  }
-  .icon {
-    display: inline-block;
-    font-size: 24px;
-    color: #333;
-    margin: 0 10px;
-    transition: color 0.3s;
-  }
-  .icon:hover {
-    color: #dc689a;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon {
+  margin: 0 10px; /* Adjust as needed */
+  text-decoration: none;
+  color: #333; /* Change color as needed */
+  font-size: 24px; /* Adjust size as needed */
+}
+
+.icon:hover {
+  color: #666; /* Change hover color as needed */
+}
+
+/* Styles for specific icons */
+#whatsapp-icon {
+  color: #25D366; /* Change color as needed */
+}
+
+#instagram-icon {
+  color: #C13584; /* Change color as needed */
+}
+
+#facebook-icon {
+  color: #3B5998; /* Change color as needed */
+}
+
   
 </style>

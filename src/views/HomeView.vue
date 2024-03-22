@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="title">
-      <h1>Elevating Modesty, <br>Embracing Elegance...</h1>
+      <h1 class="animate__animated fadeInRight">Elevating Modesty, <br>Embracing Elegance...</h1>
       <router-link to="/products">
       <button class="big-button">Shop Now</button>
     </router-link>
@@ -57,6 +57,26 @@ h1{
 .container button:hover {
   box-shadow: 0 0 10px white; /* Glow effect on hover */
 }
+.animate__animated {
+    animation-duration: 1.5s;
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.fadeInRight {
+    animation-name: fadeInRight;
+}
+
 
 @media (max-width: 390px) {
   .container .title h1 {

@@ -15,6 +15,7 @@ export default createStore({
     user: null,
     products: [],
     product: null,
+    token:'',
   },
   getters: {},
   mutations: {
@@ -42,9 +43,45 @@ export default createStore({
       // Increase the quantity of the product in the cart
       state.cart[index].quantity++;
     },
+    // sortProductsByPrice(state, order) {
+    //   if (order === 'asc') {
+    //     state.products.sort((a, b) => a.productAmount - b.productAmount);
+    //   } else if (order === 'desc') {
+    //     state.products.sort((a, b) => b.productAmount - a.productAmount);
+    //   }
+    // },
+    // sortProductsByName(state, order) {
+    //   if (order === 'asc') {
+    //     state.products.sort((a, b) => a.prodName.localeCompare(b.prodName));
+    //   } else if (order === 'desc') {
+    //     state.products.sort((a, b) => b.prodName.localeCompare(a.prodName));
+    //   }
+    // },
   },
   
   actions: {
+    sortProductsByPrice(context, order) {
+      context.commit('sortProductsByPrice', order);
+    },
+    sortProductsByName(context, order) {
+      context.commit('sortProductsByName', order);
+    },
+    sortProductsByPrice({ state, commit }, order) {
+      if (order === 'asc') {
+        state.products.sort((a, b) => a.productAmount - b.productAmount);
+      } else if (order === 'desc') {
+        state.products.sort((a, b) => b.productAmount - a.productAmount);
+      }
+      commit('setProducts', state.products);
+    },
+    sortProductsByName({ state, commit }, order) {
+      if (order === 'asc') {
+        state.products.sort((a, b) => a.prodName.localeCompare(b.prodName));
+      } else if (order === 'desc') {
+        state.products.sort((a, b) => b.prodName.localeCompare(a.prodName));
+      }
+      commit('setProducts', state.products);
+    },
     async register(context, payload) {
       try {
         let { message,token } = await axios.post(`${baseURL}users/register`, payload).data;
