@@ -22,14 +22,14 @@ export default {
 <style scoped>
 .container {
   display: flex;
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
-  height: 95vh; /* Adjust as needed */
+  justify-content: center; 
+  align-items: center; 
+  height: 95vh; 
   background-image: url('https://i.postimg.cc/J4KV8F7g/hoosenhijab3women.png');
   background-size: cover;
   background-position: center;
-  width: 100%; /* Full width of the viewport */
-  height: 100vh; /* Full height of the viewport */
+  width: 100%; 
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -41,8 +41,8 @@ h1{
   color: white;
   font-size: 4rem;
   font-family: 'Pacifico';font-size: 50px;
-  text-align: center; /* Center text horizontally */
-  /* -webkit-text-stroke: 1px rgb(51, 18, 18); Border outline */
+  text-align: center; 
+  
 }
 
 .container button {

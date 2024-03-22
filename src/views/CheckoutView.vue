@@ -59,10 +59,7 @@ export default {
   background-color: #f2f2f2;
 }
 
-/* Hover effect for rows */
-.main2 tr:hover {
-  background-color: #ddd;
-}
+
 
 #payButton {
   background-color: #fff;

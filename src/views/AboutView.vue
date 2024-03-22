@@ -170,17 +170,29 @@
     animation-name: fadeInLeft;
 }
 
-/* Styles for specific icons */
+/* Styles for icons */
+.social-icons {
+  display: flex;
+  justify-content: center; 
+}
+
+.icon {
+  font-size: 30px; 
+  margin-right: 10px; 
+}
+.icon i {
+  color: #9e0f0f; 
+}
 #whatsapp-icon {
-  color: #25D366; /* Change color as needed */
+  color: #25D366; 
 }
 
 #instagram-icon {
-  color: #C13584; /* Change color as needed */
+  color: #C13584; 
 }
 
 #facebook-icon {
-  color: #3B5998; /* Change color as needed */
+  color: #3B5998; 
 }
 
 

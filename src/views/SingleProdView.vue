@@ -43,7 +43,7 @@
     },
     data() {
     return {
-      quantity: 1 // default quantity
+      quantity: 1 
     }
   },
     methods:{

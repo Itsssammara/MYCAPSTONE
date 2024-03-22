@@ -77,8 +77,8 @@ export default {
   background-image: url('https://i.postimg.cc/yYy6dSBN/contactbg.jpg');
   background-size: cover;
   background-position: center;
-  width: 100vw; /* Full width of the viewport */
-  height: 100vh; /* Full height of the viewport */
+  width: 100vw; 
+  height: 100vh; 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -132,30 +132,30 @@ export default {
 .regist-link {
   color: #000000;
 }
-/* Media Queries */
+
 @media only screen and (max-width: 768px) {
   .signup-container {
-    width: 90%; /* Adjust width for smaller screens */
+    width: 90%; 
   }
 }
 
 @media only screen and (max-width: 576px) {
   .signup-container {
-    width: 80%; /* Further adjust width for smaller screens */
+    width: 80%; 
   }
 
   .signup-title {
-    font-size: 24px; /* Adjust title font size for smaller screens */
+    font-size: 24px; 
   }
 
   .signup-form .form-control {
-    font-size: 14px; /* Adjust input font size for smaller screens */
+    font-size: 14px; 
   }
 }
 
 @media only screen and (max-width: 400px) {
   .signup-container {
-    width: 95%; /* Further adjust width for smaller screens */
+    width: 95%; 
   }
 }
 </style>

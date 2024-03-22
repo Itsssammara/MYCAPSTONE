@@ -98,7 +98,7 @@ h2{
 }
 .product-card {
   height: 500px; 
-  background: linear-gradient(to top, rgba(183, 106, 142, 0.552), rgba(0, 0, 0, 0)); /* Adjust gradient colors as needed */
+  background: linear-gradient(to top, rgba(183, 106, 142, 0.552), rgba(0, 0, 0, 0)); 
 }
 
 
@@ -147,7 +147,7 @@ h2{
   border-radius: 5px;
 }
 .searchBar {
-  width: 300px; /* Default width */
+  width: 300px; 
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -156,19 +156,19 @@ h2{
 /* Media query for smaller screens */
 @media only screen and (max-width: 600px) {
   .searchBar {
-    width: 300px; /* Adjusted width for smaller screens */
+    width: 300px; 
   }
 }
 
 /* Media query for larger screens */
 @media only screen and (min-width: 1200px) {
   .searchBar {
-    width: 500px; /* Adjusted width for larger screens */
+    width: 500px; 
   }
 }
 /* title animation */
 .animate__animated {
-  animation-duration: 2.5s; /* Adjust animation duration as needed */
+  animation-duration: 2.5s; 
   animation-fill-mode: both;
 }
 
@@ -196,7 +196,7 @@ h2{
 
 /* prods animation */
 .animate__animated {
-  animation-duration: 1.5s; /* Adjust animation duration as needed */
+  animation-duration: 1.5s; 
 }
 
 .fadeInUp {
@@ -206,11 +206,11 @@ h2{
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(20px); /* Adjust initial position as needed */
+    transform: translateY(20px); 
   }
   to {
     opacity: 1;
-    transform: translateY(0); /* Adjust final position as needed */
+    transform: translateY(0); 
   }
 }
 .sort-buttons {

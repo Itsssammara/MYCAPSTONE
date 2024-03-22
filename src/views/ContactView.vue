@@ -103,27 +103,27 @@
 }
 
 .icon {
-  margin: 0 10px; /* Adjust as needed */
+  margin: 0 10px;
   text-decoration: none;
-  color: #333; /* Change color as needed */
-  font-size: 24px; /* Adjust size as needed */
+  color: #333; 
+  font-size: 24px; 
 }
 
 .icon:hover {
-  color: #666; /* Change hover color as needed */
+  color: #666; 
 }
 
-/* Styles for specific icons */
+/* Styles for icons */
 #whatsapp-icon {
-  color: #25D366; /* Change color as needed */
+  color: #25D366; 
 }
 
 #instagram-icon {
-  color: #C13584; /* Change color as needed */
+  color: #C13584; 
 }
 
 #facebook-icon {
-  color: #3B5998; /* Change color as needed */
+  color: #3B5998; 
 }
 
   

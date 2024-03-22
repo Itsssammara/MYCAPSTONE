@@ -124,13 +124,10 @@ export default {
       this.$store.dispatch('deleteProduct', {id:prodID});
     },
     addUser() {
-      // Logic for adding a user
     },
     addProduct() {
-      // Logic for adding a product
     },
     editProduct(product) {
-      // Logic for editing a product
     }
   },
   mounted() {

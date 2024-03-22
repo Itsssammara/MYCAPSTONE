@@ -49,8 +49,8 @@ export default {
   background-image: url('https://i.postimg.cc/yYy6dSBN/contactbg.jpg');
   background-size: cover;
   background-position: center;
-  width: 100vw; /* Full width of the viewport */
-  height: 100vh; /* Full height of the viewport */
+  width: 100vw; 
+  height: 100vh; 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -94,7 +94,7 @@ export default {
   background-color: #d45693;
   box-shadow: 0 0 10px rgba(212, 86, 147, 0.5);
 }
-/* Media Queries */
+
 @media only screen and (max-width: 768px) {
   .signup-container {
     width: 90%;
