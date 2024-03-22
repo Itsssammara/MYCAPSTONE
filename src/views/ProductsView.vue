@@ -5,6 +5,20 @@
     <div class="search-container">
   <input v-model="searchQuery" type="text" class="searchBar" placeholder="Search...">
 </div><br>
+<div class="sort-buttons">
+      <button
+        @click="sortByPrice('asc')"
+        :class="{ active: sortOrder === 'asc' }"
+      >
+        <span>Sort by Price Ascending</span>
+      </button>
+      <button
+        @click="sortByPrice('desc')"
+        :class="{ active: sortOrder === 'desc' }"
+      >
+        <span>Sort by Price Descending</span>
+      </button>
+    </div><br>
     <div class="row row-cols-1 row-cols-md-3 g-4 animate__animated fadeInUp">
       <div v-for="product in filteredProducts" :key="product.prodID" class="col">
         <div class="card product-card">
@@ -31,7 +45,8 @@
 export default {
   data() {
     return {
-      searchQuery: ''
+      searchQuery: '',
+      sortOrder: 'asc' // Default sort order
     };
   },
   computed: {
@@ -39,11 +54,31 @@ export default {
       return this.$store.state.products;
     },
     filteredProducts() {
-      if (!this.searchQuery.trim()) return this.products;
-      const query = this.searchQuery.trim().toLowerCase();
-      return this.products.filter(product => {
-        return product.prodName.toLowerCase().includes(query);
+      let filtered = this.products;
+
+      // Filter products based on search query
+      if (this.searchQuery.trim() !== '') {
+        const query = this.searchQuery.trim().toLowerCase();
+        filtered = filtered.filter(product =>
+          product.prodName.toLowerCase().includes(query)
+        );
+      }
+
+      // Sort filtered products based on sort order
+      return this.sortProducts(filtered);
+    }
+  },
+  methods: {
+    // Method to sort products array
+    sortProducts(products) {
+      return products.slice().sort((a, b) => {
+        const order = this.sortOrder === 'asc' ? 1 : -1;
+        return order * (a.amount - b.amount);
       });
+    },
+    // Method to update sort order and trigger sorting
+    sortByPrice(order) {
+      this.sortOrder = order;
     }
   },
   mounted() {
@@ -178,5 +213,29 @@ h2{
     transform: translateY(0); /* Adjust final position as needed */
   }
 }
+.sort-buttons {
+  display: flex;
+}
 
+.sort-buttons button {
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.sort-buttons button.active {
+  background-color: #b53996;
+  color: #ffffff;
+  border-color: #b53996;
+}
+
+.sort-buttons button:hover {
+  background-color: #f0f0f0;
+}
+
+.sort-buttons button:not(:last-child) {
+  margin-right: 10px;
+}
 </style>

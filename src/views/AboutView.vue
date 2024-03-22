@@ -53,6 +53,7 @@
 .header h1 {
   font-size: 32px;
   margin-bottom: 20px;
+  color: #d45555;
 }
 
 .image-container img {
