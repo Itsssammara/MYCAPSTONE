@@ -16,7 +16,7 @@
       <div class="navbar fixed-navbar" style="z-index: 50;">
         <div class="logo-container">
             <button class="open-btn" @click="openNav">&#9776;</button>
-            <img src="https://i.postimg.cc/kGLpVP38/thelogo.png" alt="Logo" class="logo-img">
+            <img src="https://i.ibb.co/ByLMRVx/thelogo.png" alt="Logo" class="logo-img">
         </div>
       </div>
       <router-view/>

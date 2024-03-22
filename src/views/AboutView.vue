@@ -4,7 +4,7 @@
       <h1 class="animate__animated fadeInLeft">About Us</h1>
     </div>
     <div class="image-container">
-      <img class="animate__animated fadeInRight" src="https://i.postimg.cc/mr1vy2L9/model1.png" alt="Modest Elegance Hijabs">
+      <img class="animate__animated fadeInRight" src="https://i.ibb.co/PF9C6jB/model1.png"  alt="Modest Elegance Hijabs">
     </div>
     <div class="content">
       

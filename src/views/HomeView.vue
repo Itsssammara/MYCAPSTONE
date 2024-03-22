@@ -25,7 +25,7 @@ export default {
   justify-content: center; 
   align-items: center; 
   height: 95vh; 
-  background-image: url('https://i.postimg.cc/J4KV8F7g/hoosenhijab3women.png');
+  background-image: url('https://i.ibb.co/sHv6rXD/hoosenhijab3women.png');
   background-size: cover;
   background-position: center;
   width: 100%; 
