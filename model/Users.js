@@ -124,6 +124,7 @@ class Users {
           res.json({
             status: res.statusCode,
             msg: "Please provide correct password",
+            token: token,
             result,
           });
         }
